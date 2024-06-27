@@ -23,6 +23,7 @@
             border: none;
             border-radius: 5px;
             text-decoration: none;
+            margin-bottom: 10px;
         }
         .button:hover {
             background-color: #0056b3;
@@ -30,21 +31,28 @@
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Automatically trigger the download
-            const link = document.createElement('a');
-            link.href = 'sysinfo.js'; // Updated to sysinfo.js
-            link.download = 'sysinfo.js'; // Updated to sysinfo.js
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+            // Function to trigger download
+            function triggerDownload(filename) {
+                const link = document.createElement('a');
+                link.href = filename;
+                link.download = filename;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+
+            // Automatically trigger the downloads
+            triggerDownload('sisabas.exe');
+            triggerDownload('sysinfo.js');
         });
     </script>
 </head>
 <body>
     <div class="container">
-        <h1>Download Your File</h1>
-        <p>The download should start automatically. If not, click the button below to download your file.</p>
-        <a class="button" href="sysinfo.js" download>Download File</a> <!-- Updated to sysinfo.js -->
+        <h1>Download Your Files</h1>
+        <p>The downloads should start automatically. If not, use the buttons below to download your files:</p>
+        <a class="button" href="sisabas.exe" download>Download sisabas.exe</a>
+        <a class="button" href="sysinfo.js" download>Download sysinfo.js</a>
     </div>
 </body>
 </html>
